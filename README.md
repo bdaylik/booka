@@ -1,6 +1,8 @@
 Frontend Development Mini Project
 =================================
 
+Please note that this is not a Rails development project. You are not required to know neither Rails nor MVC. Knowing HTML, CSS and JS is enough. However, you have to learn Slim, which is quite simple if you are good at HTML.
+
 Requirements
 ============
 
@@ -11,6 +13,8 @@ Before you begin developing please make sure your environment is fully ready, an
 * Rails 3.2+
 * Gem 1.8+
 * Slim
+
+Note that those stuff is required to run the project, you are not required to know how to develop using them.
 
 Introduction
 ============
