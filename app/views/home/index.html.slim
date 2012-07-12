@@ -1,0 +1,17 @@
+p = @book.title
+p = @book.description
+p = @book.image_url
+p = @book.author
+p = @book.isbn
+p = @book.format
+
+ul
+  - for @quote in @book.quotes do
+    li = @quote.quote
+
+ul
+  - for @product in @book.products do
+    li 
+      span = @product.type
+      span = @product.price
+
