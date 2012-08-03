@@ -2,5 +2,13 @@ doctype html
 html
   head
     title Poc
+	= stylesheet_link_tag "reset"    
+	= stylesheet_link_tag "font"    
+	= stylesheet_link_tag "typekit"
+	= stylesheet_link_tag "layout" 
+
+	= javascript_include_tag "jquery-1.7.2.min"    
+	= javascript_include_tag "booka"    
+
   body
     = yield
