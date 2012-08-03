@@ -1,6 +1,14 @@
 doctype html
 html
   head
-    title Poc
+    title = @book.title
+    
+    link rel="stylesheet" type="text/css" href="assets/css/reset-min.css"
+    link rel="stylesheet" type="text/css" href="assets/css/fonts.css"
+    link rel="stylesheet" type="text/css" href="assets/css/screen.css" media="screen"
+
+    script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"
+    script type="text/javascript" src="assets/js/home.js"
+    
   body
     = yield

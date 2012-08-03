@@ -1,17 +1,161 @@
-p = @book.title
-p = @book.description
-p = @book.image_url
-p = @book.author
-p = @book.isbn
-p = @book.format
 
-ul
-  - for @quote in @book.quotes do
-    li = @quote.quote
+div id="header"
+    div class="inner-wrapper"
+        h1 = @book.title
+        p class="author"
+            span By 
+            strong = @book.author
+        p class="publish" Published Jun 2012, 368 pages
+        div
+            a href="" class="btn" ADD TO MY QUEUE
+            a href="" class="btn" I'VE READ IT
+            a href="" class="btn" NO THANKS
+            a href="" class="btn"
+                span class="ico ico-01" FAVORITE
 
-ul
-  - for @product in @book.products do
-    li 
-      span = @product.type
-      span = @product.price
+div id="head-nav"
+    div class="inner-wrapper"
+        ul
+            li
+                a href="#content"
+                    span About this 
+                    strong BOOK
+            li class="last"
+                a href="#foot-quotes"
+                    span Favorite
+                    strong QUOTES
 
+div id="content"
+    div class="inner-wrapper"
+        h2
+            span About this 
+            strong BOOK
+        div class="book-cover"
+            img src="#{@book.image_url}" width="175" height="298"
+            div class="book-cover-btn"
+                a href="" class="btn btn-02"
+                    span class="ico ico-02" &nbsp;
+                    span ADD A REVIEW
+        div class="book-description"
+            div class="book-card"
+                div class="book-card-buy"
+                    strong Price: $12.99
+                    a href="#" class="btn btn-02"
+                        span class="ico ico-03" &nbsp;
+                        span BUY eBOOK
+                div class="book-card-add"
+                    div class="book-card-btn"
+                        strong Price: $30.13
+                        a href="#" class="btn btn-02" ADD TO CARD
+                    div class="book-card-pick"
+                        select
+                          - for @product in @book.products do
+                            option 
+                              span = @product.type + ", " + @product.price
+                div class="book-card-loc"
+                    div class="book-card-pick
+                        select
+                            option BUY ELSEWHERE
+            div class="book-text"
+                p = @book.description
+            dl class="book-properties"
+                dt ISBN:
+                dd = @book.isbn
+                dt FORMAT:
+                dd = @book.format
+                dt PAGES:
+                dd 368
+                dt PUBLICATION DATE:
+                dd 06/05/2012
+
+div id="foot-quotes"
+    div class="inner-wrapper"
+        h2
+            span Favorite
+            strong QUOTES
+        div class="foot-quotes-btn"
+            a href="#" class="btn btn-02"
+                span class="ico ico-04" &nbsp;
+                span ADD A QUOTE
+        ul class="foot-quotes-list"
+          - for @quote in @book.quotes do
+            li
+                blockquote = @quote.quote
+        div class="foot-quotes-btn"
+            a href="#" class="btn btn-03"
+                span VIEW ALL QUOTES
+                span class="ico ico-05" &nbsp;
+
+div id="foot-nav"
+    div class="inner-wrapper"
+        ul class="menu left"
+            li
+                strong RECOMMENDATIONS
+                ul
+                    li
+                        a href="" Start with a book
+                    li
+                        a href="" Start with an author
+                    li
+                        a href="" Start with an experience
+            li class="fingerprint"
+                strong FINGERPRINT
+                ul
+                    li
+                        p Looking for a new reading adventure? Delivers better book discovery. Our recommendations are based on a deep understanding of book anatomy, reader experiences and diverse publishing insights. <a href="">Learn more &rarr;</a>
+        ul class="menu right"
+            li
+                strong ABOUT US
+                ul
+                    li
+                        a href="" About
+                    li
+                        a href="" Blog
+            li
+                strong CONTACT US
+                ul
+                    li
+                        a href="" Advertising
+                    li
+                        a href="" Careers
+                    li
+                        a href="" Contact Us
+            li
+                strong FOLLOW US
+                ul
+                    li
+                        a href="" Facebook
+                    li
+                        a href="" Twitter
+                    li
+                        a href="" Pinterest
+                    li
+                        a href="" Tumblr
+            li
+                strong OFFERS
+                ul
+                    li
+                        a href="" Deals
+                    li
+                        a href="" On Sale
+            li
+                strong SUPPORT
+                ul
+                    li
+                        a href="" FAQ
+                    li
+                        a href="" Community Guidelines
+                    li
+                        a href="" Support
+
+div id="footer"
+    div class="inner-wrapper"
+        span class="copyright" &copy; 2012
+        span class="partner" In partnership with
+        ul class="menu"
+            li
+                a href="#" Site Map
+            li
+                a href="#" Privacy Policy
+            li
+                a href="#" Terms of Service
