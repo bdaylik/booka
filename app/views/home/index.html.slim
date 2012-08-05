@@ -1,17 +1,189 @@
-p = @book.title
-p = @book.description
-p = @book.image_url
-p = @book.author
-p = @book.isbn
-p = @book.format
+div#data[data-quote="#{@book.quotes.map(&:quote)}"]
+ 
+div#header
+	div#header-wrapper
+		div#booktitle = @book.title
+		div#bookwriter
+			span.gray By 
+			span.teal = @book.author
+		div#bookdate.gray
+			| Published 
+			=' @book.publication_date.strftime("%B")[0,3] 
+			= @book.publication_date.strftime("%Y")
+			|, 
+			=' @book.pages
+			| pages
+		div#actions
+			div.button ADD TO MY QUEUE
+			div.button I'VE READ IT
+			div.button NO THANKS
+			div.button &hearts; 
+div#links
+	div.content
+		div#floatlayer
+			div.divider
+			div
+				a[href="#bookvisual"] 
+					span.curly About this
+					span.bold BOOK
+			div.divider
+			div
+				a[href="#quotes-wrapper"]
+					span.curly Favorite
+					span.bold QUOTES
+			div.divider
+			div.clear
 
-ul
-  - for @quote in @book.quotes do
-    li = @quote.quote
+div.newhr
+div#bookvisual
+	div#bookimage
+		img[src="#{@book.image_url}"]
+		div.button.teal.bold
+			img[src="img/speechbubble.png"]
+			| ADD A REVIEW
+	div#bookdescription
+		div.title
+			span.curly
+				| About this
+			span.bold
+				| BOOK
+		div.description
+			div.box
+				div.itemodd
+					span.bold
+						' Price:
+					span.bold
+						' $12.99
+					div.button.teal.bold
+						img[src="img/shopcar.png"]
+						| BUY eBOOK
+				div.itemeven
+					span.bold
+						' Price:
+					span#price.bold
+						' $30.13
+					div.button.teal.bold ADD TO CART
+					br
+					br
+					div.btn-group
+						button.btn.primary#datatext
+							| CD-AUDIO, 2012, $30.13
+						button.btn.primary.dropdown-toggle[data-toggle="dropdown"]
+							img[src="img/downarrow.png"]
+						ul.dropdown-menu
+							li: a#cd[href="#"]  CD-AUDIO, 2012, $30.13
+							li: a#hard[href="#"]  HARDCOVER, 2012, $50,34
+				div.itemodd
+					div.btn-group
+						button.btn.primary
+							| BUY ELSEWHERE
+						button.btn.primary.dropdown-toggle[data-toggle="dropdown"]
+							img[src="img/downarrow.png"]
+						ul.dropdown-menu
+							li: a[href="#"]  Dummy 1
+							li: a[href="#"]  Dummy 2
+							li: a[href="#"]  Dummy 3
+			= @book.description
+			div#bookextra
+				span.dark ISBN: 
+				span.bright = @book.isbn
+				br
+				span.dark FORMAT: 
+				span.bright = @book.format
+				br
+				span.dark PAGES: 
+				span.bright = @book.pages
+				br
+				span.dark PUBLICATION DATE: 
+				span.bright = @book.publication_date
+				br
 
-ul
-  - for @product in @book.products do
-    li 
-      span = @product.type
-      span = @product.price
+div#quotes-wrapper
+	div#quotes
+		div.favourite
+			div
+				span.curly Favorite
+				span.bold QUOTES
+		div.addbutton
+			div.button.teal.bold 
+				div.bigquote “
+				div.bigcontent ADD A QUOTE
+		div.quotearea
+			div.row
+				div.span1.bigfont “
+				div.span10#quotedata  
+				div.span1.bigfont ”
+		div.viewall#trigger
+			div.button.white.bold 
+				| VIEW ALL QUOTES  
+				img[src="img/rightarrow.png"]
+
+		a.fancybox#triggered[href="#allquotes"]
+		div#allquotes
+			ul
+				- for @quote in @book.quotes do
+    			  li = @quote.quote
+
+div#footer
+	div#footer-menuarea
+		div.content
+			div#recommendblock
+				div#recommend
+					div.item-group
+						div.item-header RECOMMENDATIONS
+						div.item-element Start with an book
+						div.item-element Start with an author
+						div.item-element Start with an experience
+				div#finger
+					div.item-group
+						div.item-header THE FINGERPRINT
+						div.item-header 
+							' Looking for a new reading adventure? Delivers better book discovery. 
+							  our recommendations are based on a deep understanding of the book anatomy, 
+							  reader experiences and diverse publishing insights.
+						
+							span.item-element Learn more &rarr;
+			div
+				div.rightidentical-menus
+					div.item-group
+						div.item-header ABOUT US
+						div.item-element About
+						div.item-element Blog
+				div.rightidentical-menus
+					div.item-group
+						div.item-header CONTACT US
+						div.item-element Advertising
+						div.item-element Careers
+						div.item-element Contact Us
+				div.rightidentical-menus
+					div.item-group
+						div.item-header FOLLOW US
+						div.item-element Facebook
+						div.item-element Twitter
+						div.item-element Pinterest
+						div.item-element Tumblr
+				div.rightidentical-menus
+					div.item-group
+						div.item-header OFFERS
+						div.item-element Deals
+						div.item-element On Sale
+				div.rightidentical-menus
+					div.item-group
+						div.item-header SUPPORT
+						div.item-element FAQ
+						div.item-element Community Guidelines
+						div.item-element Support
+						
+
+	div#footer-credits
+		div.content
+			span.white &reg; 2012
+			span.doc-group
+				span.teal Site Map
+				span.teal Privacy Policy
+				span.teal Terms of Service
+			span.partner.white In partnership with
+			
+
+
 
