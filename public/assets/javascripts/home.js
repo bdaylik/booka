@@ -1,3 +1,5 @@
+// Ömer Büyükoğlu | 2012 @Buyomer
+
 $(document).ready(function() {
 
         var aboveHeight = $('header').outerHeight();
@@ -36,12 +38,38 @@ $(document).ready(function() {
 
     $('a.view-all').click(function(){
         $('ul.quotes').hide();
+        $('a.view-all').hide();
         $('ul.hidden-quotes').fadeIn();
+
     })
 
 });
 
-
-$("nav ul li a").click(function(e){
-    $('html, body').animate({scrollTop:$('#DIV_ID').offset().top - 20}, 'slow');
+$(document).ready(function() {
+        $("nav a").anchorAnimate()
+        wH = $(window).height();
+        $('#intro').css('height',wH+'px');
+        $("html,body").animate({ scrollTop: 0 }, 50);
 });
+
+jQuery.fn.anchorAnimate = function(settings) {
+
+        settings = jQuery.extend({
+                speed : 1100
+        }, settings);   
+        
+        return this.each(function(){
+                var caller = this
+                $(caller).click(function (event) {      
+                        event.preventDefault()
+                        var locationHref = window.location.href
+                        var elementClick = $(caller).attr("href")
+                        
+                        var destination = $(elementClick).offset().top;
+                        $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, settings.speed, function() {
+                                window.location.hash = elementClick
+                        });
+                        return false;
+                })
+        })
+}
