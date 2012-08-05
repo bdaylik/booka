@@ -1,6 +1,13 @@
 doctype html
 html
   head
-    title Poc
+    title = @book.title + " By " + @book.author
+	link href='assets/stylesheets/home.css' media='screen' rel='stylesheet' type='text/css'
+    link href='assets/stylesheets/typekit.css' media='screen' rel='stylesheet' type='text/css'
+    link href='assets/stylesheets/font.css' media='screen' rel='stylesheet' type='text/css'
+    script src="assets/javascripts/jquery-1.7.2.min.js" type="text/javascript"
+    script src='assets/javascripts/home.js' type="text/javascript"
+    script src='assets/javascripts/custom-form-elements.js' type="text/javascript"
+
   body
     = yield
