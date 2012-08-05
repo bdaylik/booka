@@ -1,0 +1,514 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial !important;
+	line-height: normal !important;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+#header{
+	width: 100%;
+	height: 240px;
+	background: rgb(248,248,248); /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  rgb(248,248,248) 29%, rgb(217,217,217) 77%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(29%,rgb(248,248,248)), color-stop(77%,rgb(217,217,217))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgb(248,248,248) 29%,rgb(217,217,217) 77%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgb(248,248,248) 29%,rgb(217,217,217) 77%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgb(248,248,248) 29%,rgb(217,217,217) 77%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  rgb(248,248,248) 29%,rgb(217,217,217) 77%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#d9d9d9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+
+#header-wrapper{
+	width: 1160px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#booktitle{
+	font-size: 72px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#bookwriter{
+	margin-top: 2px;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#bookdate{
+	margin-top: 10px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.gray{
+	color: rgb(153,153,153);
+}
+
+.teal{
+	color: rgb(72,167,175);
+}
+
+.button{
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	display:inline-block;
+	padding:6px 18px 6px 18px;
+	text-decoration:none;
+	color: white;
+	background-color: #262626;
+	height: 18px;
+
+	font-style: "Arial" !important;
+	font-size: 12px;
+	color: white;
+}
+
+.button:hover{
+	background-color: rgba(38,38,38,0.8);
+}
+
+.button img{
+	vertical-align: middle;
+}
+
+.button.teal{
+	background: -moz-linear-gradient(rgb(109,185,191), rgb(74,168,176)); /* FF 3.6+ */  
+    background: -ms-linear-gradient(rgb(109,185,191), rgb(74,168,176)); /* IE10 */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4AA8B0), color-stop(100%, #6DB9BF)); /* Safari 4+, Chrome 2+ */  
+    background: -webkit-linear-gradient(rgb(109,185,191), rgb(74,168,176)); /* Safari 5.1+, Chrome 10+ */  
+    background: -o-linear-gradient(rgb(109,185,191), rgb(74,168,176)); /* Opera 11.10 */  
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6DB9BF', endColorstr='#4AA8B0'); /* IE6 & IE7 */  
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#6DB9BF', endColorstr='#4AA8B0')"; /* IE8+ */  
+    background: linear-gradient(rgb(109,185,191), rgb(74,168,176)); /* the standard */  
+
+    font-style: "brandon-grotesque" !important;
+	font-size: 12px;
+	color: white !important;
+}
+
+.button.teal img{
+	vertical-align: middle;
+}
+
+.button.white{
+	background: -moz-linear-gradient(rgb(255,255,255), rgb(243,243,243)); /* FF 3.6+ */  
+    background: -ms-linear-gradient(rgb(255,255,255), rgb(243,243,243)); /* IE10 */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3F3F3), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */  
+    background: -webkit-linear-gradient(rgb(255,255,255), rgb(243,243,243)); /* Safari 5.1+, Chrome 10+ */  
+    background: -o-linear-gradient(rgb(255,255,255), rgb(243,243,243)); /* Opera 11.10 */  
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F3', endColorstr='#FFF'); /* IE6 & IE7 */  
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F3', endColorstr='#FFF')"; /* IE8+ */  
+    background: linear-gradient(rgb(255,255,255),rgb(243,243,243)); /* the standard */  
+
+    font-style: "brandon-grotesque" !important;
+	font-size: 12px;
+	color: rgb(72,167,175) !important;
+}
+
+.button.white img{
+	vertical-align: middle;
+}
+
+
+
+#actions{
+	height: 40px;
+	margin-top: 20px;
+}
+
+#actions .button{
+	margin-left: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "Arial";
+	letter-spacing: -1px;
+}
+
+#links{
+	height: 60px;
+	font-size: 20px;
+	width: 100%;
+}
+
+#links .divider{
+	border-left:1px solid #BBB;
+	margin-right: 10px;
+	margin-left: 10px;
+	height: 60px;
+}
+
+#links span{
+	display: block;
+}
+
+#floatlayer{
+	overflow: auto;
+	width: 250px;
+	margin-left: 360px;
+}
+
+#floatlayer div{
+	float:left;
+}
+
+
+#links div.content{
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#links  div span:first-child{
+	margin-top: 7px;
+} 
+
+
+
+.curly{
+	font-family: "SignPainter-HouseScript";
+}
+
+.bold{
+	font-family: "brandon-grotesque";
+	font-style: normal;
+	font-weight: 700;
+}
+
+.newhr{
+	border-top: 1px solid #BBB;
+}
+
+
+.clear{
+	clear: both;
+}
+
+#bookvisual{
+	height: 490px;
+	width: 970px;
+	margin: 50px auto;
+	font-style: Arial;
+}
+
+#bookimage{
+	width: 310px;
+	float: left;
+	font-size: 12px;
+}
+
+#bookimage > img{
+	margin: -10px 0 15px -10px;
+}
+
+#bookimage div.button.teal{
+	margin: 6px 0 0 30px;
+}
+
+div.button.teal img{
+	width: 30px;
+	margin-right: 5px;
+	margin-top: 3px;
+	vertical-align: middle;
+}
+
+#bookdescription{
+	width: 640px;
+	float: right;
+}
+
+#bookdescription span{
+	display: block;
+}
+
+#bookdescription .title{
+	font-size: 33px;
+	margin-left: 105px;
+	margin-bottom: 30px;
+	line-height: 0.9;
+}
+
+#bookdescription .description{
+	font-size: 14px;
+	color: #666;
+	line-height: 1.3;
+}
+
+#bookdescription .box{
+	float:right;
+	height: 220px;
+	width: 295px;
+	margin: 0 0 30px 25px;
+
+	-moz-box-shadow: 0px 0px 5px 0.1px rgba(68,68,68,0.6);
+	-webkit-box-shadow: 0px 0px 5px 0.1px rgba(68,68,68,0.6);
+	box-shadow: 0px 0px 5px 0.1px rgba(68,68,68,0.6);
+
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+	zoom: 1;
+}
+
+#bookdescription .box span{
+	display: inline-block;
+}
+
+
+
+#bookdescription .box div.button.teal{
+	font-size: 12px;
+	margin-left: 15px;
+}
+
+#bookdescription .box .itemeven div.button.teal{
+	margin-left: 32px !important;
+}
+
+#bookdescription .box div.button.teal img{
+	width: 20px;
+	margin-right: 10px;
+	margin-top: 1px;
+	vertical-align: middle;
+}
+
+#bookdescription .box .itemodd{
+	height: 55px;
+	background-color: #FFF;
+}
+
+#bookdescription .box .bold:first-child{
+	margin-left: 20px;
+}
+
+#bookdescription .box .bold{
+	margin-left: 15px;
+	margin-top: 10px;
+	font-size: 20px;
+	color: #333;
+}
+
+#bookdescription .box .itemodd .btn:first-child{
+	width: 80%;
+	margin-left: 15px !important;	
+}
+
+#bookdescription .box .itemeven .btn:first-child{
+	width: 80%;
+	margin-left: 15px !important;	
+}
+
+#bookdescription .box .itemeven ul, li{
+	margin-left: 15px !important;
+}
+
+#bookdescription .box .itemodd ul, li{
+	margin-left: 15px !important;
+}
+
+
+#bookdescription .box .itemodd .btn{
+	margin-top: 10px;
+}
+
+#bookdescription .box .itemeven{
+	height: 110px;
+	background-color: #F5F5F5;
+}
+
+
+button.btn.primary{
+	text-align: left !important;
+}
+
+#bookextra{
+	margin-top: 30px;
+	font-size: 10px;
+	line-height: 1.6;
+}
+
+#bookextra span{
+	display: inline;
+}
+
+#bookextra .dark{
+	color: black;
+}
+
+#bookextra .bright{
+	color: #999;
+}
+
+
+#quotes-wrapper{
+	height: 480px;
+	background-color: rgb(38,38,38);
+	color: white;
+}
+
+#quotes{
+	width: 1160px;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	padding-top: 40px;
+}
+
+#quotes .favourite{
+	font-size: 35px;
+	line-height: 0.9;
+}
+
+#quotes .favourite span{
+	display: block;
+}
+
+#quotes .addbutton{
+	margin-top: 30px;
+}
+
+.bigquote{
+	font-size: 50px;
+	margin: -15px 0 0 -95px;
+}
+
+.bigcontent{
+	margin: -57px -10px 0 20px;
+}
+
+.addbutton > div.button.teal.bold{
+	padding:8px 24px 8px 24px;
+}
+
+#quotes .quotearea{
+	margin-top: 30px;
+	display: inline-block;
+	font-family: "brandon-grotesque";
+}
+
+
+.bigfont{
+	font-size: 180px;
+}
+
+div.span1.bigfont{
+	color: #262626;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+}
+
+div.span4.bigfont{
+	color: #FFF;
+}
+
+#quotedata{
+	font-size: 30px;
+	margin-top: 50px;
+	padding: 0 20px 0 20px;
+}
+
+.button.white img{
+	margin-left: 15px;
+}
+
+#quotes .viewall{
+	margin-top: -40px;
+}
+
+#footer{
+	height: 280px;
+	border-top: 1px solid rgb(228,228,228);
+}
+
+#footer #footer-menuarea{
+	height: 230px;
+	background-color: black;
+}
+
+#footer #footer-credits{
+	height: 50px;
+	background-color: rgb(38,38,38);
+	padding-left: 55px;
+}
+
+#footer .content{
+	width: 1060px;
+	margin: 0 auto;
+	overflow: auto;
+	height: 100%;
+	font-size: 12px;
+}
+
+#recommendblock{
+	float:left;
+	width: 475px;
+	border-right: 1px solid rgb(37,37,37);
+	height: 100%; 
+}
+
+
+.item-group{
+	height: 100%;
+	margin-top: 45px
+}
+
+.item-header{
+	color: white;
+	margin-bottom: 10px;
+}
+
+.item-element{
+	color:  rgb(72,167,175);
+	margin-bottom: 10px;
+}
+
+#recommend{
+	width: 170px;
+	float: left;
+	margin-left: 30px; 
+}
+
+#finger{
+	width: 255px;
+	float: left;
+	margin-left: -5px;
+	line-height: 1.6;
+}
+
+.rightidentical-menus{
+	width: 80px;
+	float: left;
+	margin-left: 25px; 
+}
+
+#footer .rightidentical-menus:last-child{
+	width: 130px;
+}
+
+.white{
+	color:  rgb(255,255,255);
+}
+
+#footer-credits span{
+	display: inline-block;
+	margin-top: 10px;
+}
+
+#footer-credits .doc-group{
+	margin-left: 420px;
+	width: 300px;
+}
+
+#footer-credits .doc-group span{
+	margin-left: 20px;
+}
+
+#footer-credits .partner{
+	float:right;
+}
