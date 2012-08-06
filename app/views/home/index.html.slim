@@ -1,4 +1,3 @@
-
 header
 	div class="top"
 		h1 class="title" = @book.title
@@ -13,8 +12,9 @@ header
 				a href="#" I'VE READ IT
 			li
 				a href="#" NO THANKS
-			li
-				a href="#" class="like" LIKE
+			li class="like"
+				a class="like" LIKE
+			span class="liked"
 
 nav
 	ul class="menu horizontal"
@@ -32,7 +32,7 @@ section class="content" id="about-book"
 		div class="cover"
 			div class="boyut"
 				figure
-					img src="#{@book.image_url}" width="175" height="306"
+					img src="#{@book.image_url}" width="160" height="310"
 				a href="#" class="button review" title="Add a Review"
 					span class="ico-review"
 					span ADD A REVIEW
@@ -42,7 +42,6 @@ section class="content" id="about-book"
 			span About this
 			strong BOOK
 		aside
-			
 			div class="buy-digital"
 				span class="price" Price: $ 12.99
 				a href="#" class="button buy" title="Buy eBOOK"
@@ -50,15 +49,14 @@ section class="content" id="about-book"
 					span BUY eBOOK
 			
 			div class="add-to-cart"
-				span class="price" Price: $ 30.13
+				span class="price price-change" Price: $ 12.99
 				a href="#" class="button add" title="Add To Chart"
 					span ADD TO CART
 				div class="price-select"
-					select class="styled"
+					select class="styled" id="prices"
 					    - for @product in @book.products do
-					    	option 
-								span = @product.type + ", " + @product.price
-
+					    	option(value=@product.price) = @product.type + ", " + @product.price
+			
 			div class="buyelse"
 				div class="price-select"
 					select class="styled"
@@ -82,8 +80,8 @@ section class="content" id="about-book"
 				span
 					strong PUBLICATION DATE: 
 				span 06/05/2012
-div class="clear"  	
-section class="quotes" id="quotes"
+				 	
+section class="quotes clear" id="quotes"
 	article
 		h2
 			span Favourite
@@ -173,4 +171,3 @@ div class="credits-wrapper"
                 a href="#" Privacy Policy
             li
                 a href="#" Terms of Service
-
