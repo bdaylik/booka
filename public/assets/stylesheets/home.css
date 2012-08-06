@@ -11,12 +11,12 @@ header h2.author span { color: #999; }
 header div.pub-info { color: #999; font-size: 11px; text-align: center; }
 header ul.horizontal li { background: #262626; -moz-border-radius: 6px; margin-top: 3px; cursor: pointer; -webkit-border-radius: 6px; border-radius: 6px; margin-right: 5px; height: 33px }
 header ul.horizontal li:hover { background: #62A4AC; -webkit-transition: background-color 300ms linear; -moz-transition: background-color 300ms linear; -o-transition: background-color 300ms linear; -ms-transition: background-color 300ms linear; transition: background-color 300ms linear; }
-header ul.horizontal li a { color: #E5E5E5; text-decoration: none; font-family: 'brandon-grotesque'; padding: 10px 24px; display: block; font-size: 11px; letter-spacing: 0pt }
+header ul.horizontal li a { color: #E5E5E5; text-decoration: none; font-family: 'brandon-grotesque'; padding: 9px 24px; display: block; font-size: 11px; letter-spacing: 0pt }
 header ul.horizontal li a.like { background: url('../images/sprite2.png') no-repeat 10px 9px; display: block; text-indent: -999em; padding: 10px 20px; }
 header ul.horizontal span.liked { width: 52px; height: 23px; background: url('../images/liked.png'); position: absolute; margin: -25px -51px; display: block; display: none; }
 
 /* Navigation */
-nav { width: 100%; background: #fff; border-bottom: 1px solid #D9D9D9; border-top: 1px solid #D9D9D9; height: 60px; z-index: 999 }
+nav { width: 980px; background: #fff; border-bottom: 1px solid #D9D9D9; border-top: 1px solid #D9D9D9; height: 60px; z-index: 999 }
 nav ul.menu { width: 215px; margin: 0 auto }
 nav ul.menu li a { color: #000; text-decoration: none; height: 60px; display: block; padding: 0 15px }
 nav ul.menu li { border-left: 1px solid #D9D9D9; border-right: 1px solid #D9D9D9; height: 60px; }
