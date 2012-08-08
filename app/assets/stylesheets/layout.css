@@ -1,0 +1,520 @@
+body{
+	font-family: Arial, sans-serif;
+	min-width: 1002px; 
+}
+.container{
+	width: 1002px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clear{
+	clear: both;
+}
+
+/*header start*/
+#header{
+	text-align: center;
+	padding: 20px 0 25px 0;
+	background: #d9d9d9 url('topback.jpg') no-repeat;	
+	background-size:cover;
+	-moz-background-size:cover;
+	-webkit-background-size:cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='topback.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='topback.jpg', sizingMethod='scale')";
+}
+
+#header h1{
+	font-size: 54pt;
+	font-weight:bold;
+	line-height: 1.3em;
+	color: #000;
+	text-transform:uppercase;
+}
+
+#header h2{
+	line-height: 1em;
+	font-size: 23pt;
+	font-weight: bold;	
+	color: #48a7af;
+	display: inline;
+}
+
+#header h2.by{
+	color: #999;
+}
+
+#header h3{
+	line-height: 2em;	
+	color: #999;
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+#navState{
+	list-style: none;
+	margin-top: 15px;
+}
+
+#navState li{
+	display: inline;
+	margin-left: 2.5px;
+	margin-right: 2.5px;
+}
+
+#navState li a{
+	display: inline-block;
+	line-height: 30px;
+	padding: 0 20px 0 20px;
+	background-color: #262626;
+	color: #e5e5e5;
+	font-size: 9pt;	
+	font-weight: bold;		
+	text-decoration: none;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;		
+}
+
+#navState li a.like{
+	display: inline-block;
+	padding: 0 10px 0 10px;
+}
+
+.like i{
+	display: inline-block;
+	background: url('sprite2.png') no-repeat 0 -894px;
+	line-height: 30px;
+	color: transparent;
+	width: 18px;
+	/*ie7*/
+	cursor: pointer; 
+}
+
+#navbarContainer{
+	z-index: 99;
+	background-color: #fff;
+	text-align: center;
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+}
+#navbar{
+	list-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+	border-right: 1px solid #d9d9d9;
+	/*ie7 inline-block fix*/
+	zoom:1; 
+	*display: inline; 
+	_height: 50px;
+
+}
+
+#navbar li{
+	display: inline-block;
+	*float: left;
+	border-left: 1px solid #d9d9d9;
+}
+
+#navbar li a{
+	display: block;
+	padding: 10px 15px 10px 15px;	
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+	font-size: 16pt;
+	line-height: 1em;	
+}
+
+#navbar li span{
+	display: block;
+	font-family: "Arial Black", Arial, sans-serif;
+	font-weight: bold;
+}
+#navbar li i{
+	display: block;	
+	font-style: normal;
+	font-family: "SignPainter-HouseScript", Arial, sans-serif;	
+}
+/*header end*/
+
+/*middle start*/
+#cover{
+	float: left;
+	position: relative;
+	width: 285px;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+#coverBack{
+	height: 375px;
+	width: 275px;
+	padding-bottom: 10px;	
+
+}
+/*fallback*/
+#coverImg{
+	height: 375px;
+	width: 265px;
+}
+
+.csstransforms3d #coverBack{
+	background:  url('bookback.jpg') no-repeat;
+	background-size: 275px 375px;
+    -moz-perspective: 60px;	
+}
+.csstransforms3d #coverImg{
+	margin-top: 10px;
+	height: 320px;
+	width: 166px;
+	-moz-perspective: 60px;
+	-moz-transform: rotateY(-4deg);
+	-webkit-transform: perspective(60) rotateY(-4deg);
+
+ 	 outline: 1px solid transparent;
+}
+
+#content{
+	float: left;
+	width: 660px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#about{
+	width: 350px;
+	font-size: 24pt;
+	line-height: 1em;
+	text-align: center;
+}
+
+#about i{
+	display: block;	
+	font-style: normal;
+	font-size: 26pt;
+	font-family: "SignPainter-HouseScript",  Arial, sans-serif;		
+}
+#about span{
+	display: block;
+	font-family: "Arial Black", Arial, sans-serif;
+	font-weight: bold;
+}
+
+#bookDescription{
+	margin-top: 30px;
+	margin-bottom: 30px;	
+	color: #666;
+	font-size: 11pt;
+}
+
+#bookDetails{
+	list-style: none;
+	font-size: 8pt;
+	float: left;
+}
+
+#bookDetails b{
+	font-family: "brandon-grotesque", sans-serif;
+}
+
+#bookDetails span{
+	color: #999;
+}
+
+#buyBox{
+	float: right;
+	border: 1px solid #e5e5e5;
+	margin-left: 35px;
+	margin-bottom: 30px;
+	width: 300px;
+		-webkit-box-shadow: 0px 0px 6px #ccc;
+		-moz-box-shadow: 0px 0px 6px #ccc;
+		box-shadow: 0px 0px 6px #ccc;
+
+}
+
+.boxItem{
+	position: relative;
+	overflow: auto;
+	padding: 10px;
+
+}
+.boxItemSpan{
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	padding-right: 0px;
+	line-height: 1em;
+	font-size: 14pt;
+	font-weight: bold;	
+
+}
+
+#bookPrice{
+	padding-left: 0px;
+}
+#boxCardItem{
+	border-top: 1px solid #d1d1d1;
+	border-bottom: 1px solid #d1d1d1;
+	background-color: #f5f5f5;
+}
+/*middle end*/
+/*selectbox*/
+.selectBox{
+	margin-top: 5px;
+	overflow: auto;
+	border:1px solid #e9e9e9;	
+	cursor: pointer;
+	background-image: linear-gradient(bottom, rgb(244,244,244) 41%, rgb(255,255,255) 70%);
+	background-image: -o-linear-gradient(bottom, rgb(244,244,244) 41%, rgb(255,255,255) 70%);
+	background-image: -moz-linear-gradient(bottom, rgb(244,244,244) 41%, rgb(255,255,255) 70%);
+	background-image: -webkit-linear-gradient(bottom, rgb(244,244,244) 41%, rgb(255,255,255) 70%);
+	background-image: -ms-linear-gradient(bottom, rgb(244,244,244) 41%, rgb(255,255,255) 70%);	
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;		
+}
+
+.selectBox span{
+	float: left;
+	padding: 8px;
+	font-family: "brandon-grotesque", sans-serif;
+	font-weight: bold;
+	font-size: 9pt;	
+
+}
+
+.selectBox i{
+	float: right;
+	padding-left: 10px;
+	width: 20px;
+	height: 34px;
+	border-left: 1px solid #e9e9e9;
+	background: url('sprite.png') 2px -106px no-repeat;	
+}
+
+.open i{
+	background: url('sprite.png') 2px -135px no-repeat;		
+}
+.selectList{
+	list-style: none;
+	border-top: 1px solid #d1d1d1;	
+	display: none;
+}
+
+.selectList li{
+	padding: 5px;
+	font-family: "brandon-grotesque", sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	cursor: pointer;
+	border-bottom:1px solid #d1d1d1;	
+}
+
+.selectList li:hover{
+	background-color: #f1f1f1;
+}
+
+/*selectbox end*/
+
+/* icons start */
+.icon-basket, .icon-bubble, .icon-quote, .icon-expand{
+	display: inline-block;
+	min-height: 16px;
+	line-height: 16px;
+	background: url('sprite2.png') no-repeat;
+	cursor: pointer;
+}
+
+.icon-basket{
+	padding-left: 30px;
+	background-position: 0 -46px;
+}
+
+.icon-bubble{
+	padding-left: 38px;
+	background-position: 0 -80px;	
+}
+.icon-quote{
+	padding-left: 28px;
+	background-position: 0 -115px;		
+}
+
+.icon-expand{
+	padding-right: 42px;
+	line-height: 22px;
+	background: url('sprite.png') top right no-repeat;
+
+}
+/* icons end */
+/*buttons start*/
+.btn{
+	display: inline-block;
+	padding: 8px 15px 8px 15px;
+	text-decoration: none;
+	font-size: 9pt;
+	font-weight: bold;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;		
+}
+
+.btn-right{
+	float: right;
+}
+
+.btn-review{
+	margin-left: 10px;
+}
+.btn-blue{
+	color: #fff;
+	background: #48a7af;	
+		background-image: linear-gradient(bottom, rgb(72,166,175) 7%, rgb(140,206,212) 50%);
+		background-image: -o-linear-gradient(bottom, rgb(72,166,175) 7%, rgb(140,206,212) 50%);
+		background-image: -moz-linear-gradient(bottom, rgb(72,166,175) 7%, rgb(140,206,212) 50%);
+		background-image: -webkit-linear-gradient(bottom, rgb(72,166,175) 7%, rgb(140,206,212) 50%);
+		background-image: -ms-linear-gradient(bottom, rgb(72,166,175) 7%, rgb(140,206,212) 50%);
+}
+
+.btn-white{
+	padding-right: 5px;
+	color: #48a7af;
+	background-color: #fff;
+	border: 1px solid #f1f1f1;
+
+}
+/*buttons end*/
+
+/*quotes start*/
+#quotes{
+
+	padding-top: 50px;
+	padding-bottom: 40px;
+	text-align: center;
+	background-color: #262626;
+}
+
+#quoteContainer{
+	margin-top: 80px;
+	margin-left: 21px;
+	margin-right: 21px,
+}
+
+#quoteContainer div{
+	display: none;
+}
+
+#quoteTitle i, #quoteTitle span{
+	display: block;	
+	line-height: 1em;
+	color: #fff;
+	font-size: 24pt;
+}
+ #quoteTitle i{
+ 	font-style: normal;
+	font-family: "SignPainter-HouseScript", Arial, sans-serif;		
+}
+
+#quoteTitle span{
+	margin-bottom: 40px;
+	font-family: "Arial Black", Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+.quoteShow{
+	width: 960px;
+	min-height: 50px;
+	float: left;
+	margin-bottom: 60px;
+	background: #262626 url('quotes.png') no-repeat;
+}
+
+.quoteShow i{
+	display: block;	
+	line-height: 1em;
+	padding: 10px 60px 10px 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 24pt;	
+
+}
+/*quotes end*/
+
+/*footer start*/
+#footer{
+	position: relative;
+	overflow: auto;
+	background-color: #000;
+	border-top:1px solid #fff;
+	font-size: 9pt;
+}
+
+#footer ul{
+	list-style: none;
+	float: left;
+	line-height: 2em;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+#footer a{
+	color: #48a7af;
+	text-decoration: none;
+}
+
+#footer b{
+	font-family: "brandon-grotesque", sans-serif;	
+	color: #fff;
+}
+
+#footer span{
+	display: block;
+	color: #fff;
+}
+
+
+#footer ul.footerColBig{
+	width: 138px;
+}
+
+#footer ul.footerColFinger{
+	padding-right: 29px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-right: 1px solid #262626;
+	width: 255px;
+}
+
+#footer ul.footerColSmall{
+	margin-right: 10px;
+	margin-left: 10px;	
+	width: 80px;
+}
+
+#footerBottom{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	text-align: center;
+	font-size: 8pt;
+	background-color: #262626;
+}
+
+.bottomLeft{
+	float: left;
+	color: #fff;
+}
+
+.bottomCenter{
+	margin-left: 320px;
+
+}
+.bottomCenter a{
+	margin-right: 20px;
+}
+.bottomRight{
+	float: right;
+}
+/*footer end */
+

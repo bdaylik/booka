@@ -1,17 +1,163 @@
-p = @book.title
-p = @book.description
-p = @book.image_url
-p = @book.author
-p = @book.isbn
-p = @book.format
+div id="header"
+	div class="container"
+		h1 = @book.title
+		h2 class="by" By 
+		h2 = @book.author
+		h3 Published #{@book.publication_date}, #{@book.pages} pages
+		ul id="navState"
+			li 
+				a href="#" ADD TO MY QUEUE
+			li 
+				a href="#" I'VE READ IT
+			li 
+				a href="#" NO THANKS
+			li
+				a class="like" href="#"
+					i Like
+div id="navbarContainer"
+	ul id="navbar"
+		li 
+			a href="#about"
+				i About this 
+				span BOOK
+		li 
+			a href="#quotes"
+				i Favorite 
+				span QUOTES
 
-ul
-  - for @quote in @book.quotes do
-    li = @quote.quote
+div class="container"
+	div id="cover"
+		div id="coverBack"
+			=image_tag("cover.jpg", :id => "coverImg")
+		a href="#" class="btn btn-blue btn-review" 
+			span class="icon-bubble" ADD A REVIEW
+	div id="content"
+		div id="about"
+			i About this 
+			span BOOK
+		div id="bookDescription"
+			div id="buyBox"
+				div class="boxItem"
+					span class="boxItemSpan" Price $#{@book.products[0].price}
+					a href="#" class="btn btn-blue btn-right" 
+						span class="icon-basket" BUY eBOOK
+				div class="boxItem" id="boxCardItem"
+					span class="boxItemSpan" Price $
+					span class="boxItemSpan" id="bookPrice" #{@book.products[1].price}
+					a href="#" class="btn btn-blue btn-right" ADD TO CARD
+					div class="clear"
+					div class="selectBox" 
+						span #{@book.products[1].type}, $#{@book.products[1].price}
+						i
+					ul class="selectList"
+					  - for @product in @book.products do
+					    li*{'data-price'=> @product.price}
+					      span #{@product.type}, $#{@product.price}					
+				div class="boxItem"	
+					div class="selectBox" 
+						span BUY ELSEWHERE
+						i
+			= @book.description
+	
+		ul id="bookDetails"
+			li
+				b ISBN: 
+				span = @book.isbn
+		
+			li
+				b FORMAT: 
+				span = @book.format
+			li
+				b PAGES: 
+				span = @book.pages
+			li 
+				b PUBLICATION DATE: 
+				span = @book.publication_date
+div class="clear"
+div id="quotes"
+	div class="container"
+		div id="quoteTitle"
+			i Favorite
+			span QUOTES
+		a href="#" class="btn btn-blue" 
+			span class="icon-quote" ADD A QUOTE
+		div id="quoteContainer"
+			- for @quote in @book.quotes do
+				div class="quoteShow" 
+					i = @quote.quote
 
-ul
-  - for @product in @book.products do
-    li 
-      span = @product.type
-      span = @product.price
-
+		div class="clear"
+		a href="#" id="allQuotesBut" class="btn btn-white" 
+			span class="icon-expand" VIEW ALL QUOTES
+	
+div class="clear"			
+div id="footer"
+	div class="container"
+		ul class="footerColBig"
+			li 
+				b RECOMMENDATIONS
+			li 
+				a href="#" Start with a book
+			li 
+				a href="#" Start with an author
+			li 
+				a href="#" Start with an experince
+		ul class="footerColFinger"
+			li 
+				b THE FINGERPRINT
+			li 
+				span 
+					| Looking for a new reading adventure? Delivers better book discovery. Our recommendations are based on a deep understanding of book anatomy, readr experiences and diverse publishing insights. 
+					a href="#" Learn more →
+		ul class="footerColSmall"
+			li 
+				b ABOUT US
+			li 
+				a href="#" About
+			li 
+				a href="#" Blog
+	    ul class="footerColSmall"
+			li
+				b CONTACT US
+			li 
+				a href="#" Advertising
+			li 
+				a href="#" Careers
+			li 
+				a href="#" Contact Us	
+    	ul class="footerColSmall"
+			li 
+				b FOLLOW US
+			li 
+				a href="#" Facebook
+			li 
+				a href="#" Twitter
+			li 
+				a href="#" Pinterest
+			li 
+				a href="#" Tumblr    	
+    	ul class="footerColSmall"		
+			li 
+				b OFFERS
+			li 
+				a href="#" Deals
+			li 
+				a href="#" On Sale
+		ul class="footerColBig"
+			li 
+				b SUPPORT
+			li 
+				a href="#" FAQ
+			li 
+				a href="#" Community Guidelines
+			li 
+				a href="#" Support
+	div class="clear"
+	div id="footerBottom"
+		div class="container"
+			div class="bottomLeft" © 2012
+			div class="bottomCenter" 
+				a href="#" Sitemap
+				a href="#" Privacy Policy
+				a href="#" Terms of Service
+				span class="bottomRight" in partnership with
