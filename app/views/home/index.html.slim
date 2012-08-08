@@ -29,7 +29,7 @@ div class="container"
 	div id="cover"
 		div id="coverBack"
 			=image_tag("cover.jpg", :id => "coverImg")
-		a href="#" class="btn btn-blue" 
+		a href="#" class="btn btn-blue btn-review" 
 			span class="icon-bubble" ADD A REVIEW
 	div id="content"
 		div id="about"
@@ -42,7 +42,7 @@ div class="container"
 					a href="#" class="btn btn-blue btn-right" 
 						span class="icon-basket" BUY eBOOK
 				div class="boxItem" id="boxCardItem"
-					span class="boxItemSpan" Price $ 
+					span class="boxItemSpan" Price $
 					span class="boxItemSpan" id="bookPrice" #{@book.products[1].price}
 					a href="#" class="btn btn-blue btn-right" ADD TO CARD
 					div class="clear"
@@ -80,7 +80,7 @@ div id="quotes"
 			i Favorite
 			span QUOTES
 		a href="#" class="btn btn-blue" 
-			span class="icon-quote" Add Quote
+			span class="icon-quote" ADD A QUOTE
 		div id="quoteContainer"
 			- for @quote in @book.quotes do
 				div class="quoteShow" 
@@ -93,40 +93,65 @@ div id="quotes"
 div class="clear"			
 div id="footer"
 	div class="container"
-		div class="footerColBig"
-			b RECOMMENDATION
-			a href="#" Start with a book
-			a href="#" Start with an author
-			a href="#" Start with an experince
-		div class="footerColFinger"
-			b THE FINGERPRINT
-			span 
-				| Looking for a new reading adventure? Delivers better book discovery. Our recommendations are based on a deep understanding of book anatomy, readr experiences and diverse publishing insights. 
-				a href="#" Learn more →
-		div class="footerColSmall"
-			b ABOUT US
-			a href="#" About
-			a href="#" Blog
-	    div class="footerColSmall"
-			b CONTACT US
-			a href="#" Advertising
-			a href="#" Careers
-			a href="#" Contact Us	
-    	div class="footerColSmall"
-			b FOLLOW US
-			a href="#" Facebook
-			a href="#" Twitter
-			a href="#" Pinterest
-			a href="#" Tumblr    	
-    	div class="footerColSmall"		
-			b OFFERS
-			a href="#" Deals
-			a href="#" On Sale
-		div class="footerColBig"
-			b SUPPORT
-			a href="#" FAQ
-			a href="#" Community Guidelines
-			a href="#" Support
+		ul class="footerColBig"
+			li 
+				b RECOMMENDATIONS
+			li 
+				a href="#" Start with a book
+			li 
+				a href="#" Start with an author
+			li 
+				a href="#" Start with an experince
+		ul class="footerColFinger"
+			li 
+				b THE FINGERPRINT
+			li 
+				span 
+					| Looking for a new reading adventure? Delivers better book discovery. Our recommendations are based on a deep understanding of book anatomy, readr experiences and diverse publishing insights. 
+					a href="#" Learn more →
+		ul class="footerColSmall"
+			li 
+				b ABOUT US
+			li 
+				a href="#" About
+			li 
+				a href="#" Blog
+	    ul class="footerColSmall"
+			li
+				b CONTACT US
+			li 
+				a href="#" Advertising
+			li 
+				a href="#" Careers
+			li 
+				a href="#" Contact Us	
+    	ul class="footerColSmall"
+			li 
+				b FOLLOW US
+			li 
+				a href="#" Facebook
+			li 
+				a href="#" Twitter
+			li 
+				a href="#" Pinterest
+			li 
+				a href="#" Tumblr    	
+    	ul class="footerColSmall"		
+			li 
+				b OFFERS
+			li 
+				a href="#" Deals
+			li 
+				a href="#" On Sale
+		ul class="footerColBig"
+			li 
+				b SUPPORT
+			li 
+				a href="#" FAQ
+			li 
+				a href="#" Community Guidelines
+			li 
+				a href="#" Support
 	div class="clear"
 	div id="footerBottom"
 		div class="container"
