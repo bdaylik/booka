@@ -1,0 +1,764 @@
+// Normalize CSS
+// Adjusts browser default for better cross browser behavior
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
+[hidden] { display: none; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; }
+a { text-decoration: none; }
+a:focus { outline: thin dotted; }
+a:active, a:hover { outline: 0; }
+h1 { font-size: 2em;    margin: 0.67em 0; }
+h2 { font-size: 1.5em;  margin: 0.83em 0; }
+h3 { font-size: 1.17em; margin: 1em 0; }
+h4 { font-size: 1em;    margin: 1.33em 0; }
+h5 { font-size: 0.83em; margin: 1.67em 0; }
+h6 { font-size: 0.67em; margin: 2.33em 0; }
+b, strong { font-weight: 700; }
+p, pre { margin: 1em 0; }
+small { font-size: 80%; }
+dl, menu, ol, ul { margin: 1em 0; }
+dd { margin: 0 0 0 40px; }
+menu, ol, ul { padding: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; }
+img { border: 0; -ms-interpolation-mode: bicubic; }
+form { margin: 0; }
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+legend { border: 0; padding: 0; white-space: normal; *margin-left: -7px; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; *overflow: visible; }
+button[disabled], input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *height: 13px; *width: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+
+html, body { margin: 0; padding: 0; }
+
+// Mixins 
+@mixin clearfix {
+    zoom: 1;
+    &:after {
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+        content: ".";
+    }
+}
+
+@mixin size($height: auto, $width: auto) {
+    height: $height;
+    width: $width;
+}
+
+@mixin block-inline($align: top) {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: $align;
+}
+
+@mixin placeholder($color: #777) {
+    :-moz-placeholder { color: $color; }
+    ::-webkit-input-placeholder { color: $color; }
+}
+
+@mixin font-shorthand($weight: normal, $size: 14px, $lineHeight: 20px) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineHeight;
+}
+
+@mixin border-radius($radius: 5px) {
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin gradient ($startColor: #eee, $endColor: white) {
+	background-color: $startColor;
+	background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+	background: -webkit-linear-gradient(top, $startColor, $endColor);
+	background: -moz-linear-gradient(top, $startColor, $endColor);
+	background: -ms-linear-gradient(top, $startColor, $endColor);
+	background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+@mixin sprite($spritex: 0, $spritey: 0) {
+    background-image: url(sprite.png);
+    background-repeat: no-repeat;
+    background-position: $spritex $spritey;
+}
+
+@mixin sprite2($sprite2x: 0, $sprite2y: 0) {
+    background-image: url(sprite2.png);
+    background-repeat: no-repeat;
+    background-position: $sprite2x $sprite2y;
+}
+
+@mixin button {
+    color: #fff;
+    background: #6db9bf; /* Old browsers */
+    background: -moz-linear-gradient(top,  #6db9bf 0%, #6db9bf 45%, #4aa8b0 55%, #4aa8b0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6db9bf), color-stop(45%,#6db9bf), color-stop(55%,#4aa8b0), color-stop(100%,#4aa8b0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* W3C */
+    //filter: progid:DXImageTransform.Microsoft.include gradient( startColorstr='#6db9bf', endColorstr='#4aa8b0',GradientType=0 ); /* IE6-9 */
+    @include border-radius();
+    display: inline-block;
+    @include font-shorthand(normal, 12px, 30px);
+    padding: 0 15px;
+    &:hover {
+        background: #000;
+    }
+}
+
+@mixin tb { background-color: rgba(0,0,0,0.3); }
+
+// Variables
+$gray: #999;
+$darkgray: #666;
+$darkestgray: #333;
+$lightgray: #d9d9d9;
+$lightestgray: #e5e5e5;
+$teal: #48a7af;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// Layout 
+
+.section-wrap {
+    margin: 0 auto;
+    width: 980px;
+}
+
+header {
+    background: url(img/topback.jpg) no-repeat 50% 0 $lightgray;
+    border-top: 1px solid #000;
+    padding: 20px 0 81px;
+    text-align: center;
+    h1 {
+        font-family: "brandon-grotesque", Arial, sans-serif;
+        @include font-shorthand(700, 72px, 80px);
+        margin: 0 0 10px;
+        text-transform: uppercase;
+    }
+    h2 {
+        color: $gray;
+        font-family: "brandon-grotesque", Arial, sans-serif;
+        @include font-shorthand(bold, 30px, 36px);
+        margin: 0 0 10px;
+        text-transform: capitalize;
+        em {
+            color: $teal;
+            font-style: normal;
+        }
+    }
+    .print-data {
+        color: $gray;
+        display: block;
+        @include font-shorthand(bold, 11px, 20px);
+        margin: 0 0 15px;
+    }
+    .user-toolbar {
+        ul {
+            @include font-shorthand(normal, 12px, 33px);
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                margin: 0 1px;
+                a {
+                    background-color: #262626;
+                    color: #e5e5e5;
+                    @include border-radius();
+                    display: block;
+                    padding: 0 20px;
+                    text-transform: uppercase;
+                    &:hover {
+                        background-color: $teal;
+                    }
+                }
+                a.fav-icon {
+                    @include sprite2(50%, -885px);
+                    text-indent: -999em;
+                    width: 0;
+                }
+            }
+        }
+    }
+}
+
+.page-nav {
+    background-color: #fff;
+    border-bottom:  1px solid $lightgray;
+    border-top:     1px solid $lightgray;
+    height: 60px;
+    position: absolute;
+    text-align: center;
+    top: 244px;
+    width: 100%;
+    ul {
+        border-right:   1px solid $lightgray;
+        @include clearfix;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        li {
+            border-left:    1px solid $lightgray;
+            float: left;
+            a {
+                color: #000;
+                display: block;
+                font-family: "SignPainter-HouseScript", cursive;
+                @include font-shorthand(normal, 22px, 18px);
+                height: 50px;
+                padding: 10px 20px 1px;
+                &:hover {
+                    color: $teal;
+                }
+                span {
+                    display: block;
+                    font-family: "brandon-grotesque", Arial, sans-serif;
+                    @include font-shorthand(700, 22px, 22px);
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.about-book {
+    margin: 0 auto 40px;
+    padding: 20px 0 0;
+    position: relative;
+    min-height: 425px;
+    width: 980px;
+    h1 {
+        text-align: center;
+        font-family: "SignPainter-HouseScript", cursive;
+        @include font-shorthand(normal, 36px, 30px);
+        span {
+            display: block;
+            font-family: "brandon-grotesque", Arial, sans-serif;
+            @include font-shorthand(700, 36px, 40px);
+            text-transform: uppercase;
+        }
+    }
+    .add-to-cart {
+        @include box-shadow(0 0 5px rgba(0,0,0,.5));
+        float: right;
+        list-style: none;
+        margin: 1em 0 35px 25px;
+        padding: 0;
+        width: 300px;
+        > li {
+            border-top: 1px solid $lightestgray;
+            @include clearfix;
+            color: $darkestgray;
+            @include font-shorthand(bold, 18px, 32px);
+            padding: 11px;
+            position: relative;
+            &:first-child {
+                border-top: none;
+            }
+            &.action {
+                background-color: #f5f5f5;
+            }
+            span {
+                display: block;
+                margin-bottom: 10px;
+                em {
+                    font-style: normal;
+                }
+            }
+            > a {
+                @include button;
+                position: absolute;
+                right: 11px;
+                top: 11px;
+                i.cart-icon {
+                    display: inline-block;
+                    line-height: inherit;
+                    margin: -3px 0 0;
+                    @include sprite2(0, -46px);
+                    @include size(15px, 32px);
+                    vertical-align: middle;
+                }
+            }
+            select, div {
+                font-size: 12px;
+            }
+        }
+    }
+    p {
+        color: $darkgray;
+        @include font-shorthand(normal, 14px, 20px);
+        margin-left: 315px;
+    }
+    dl {
+        @include clearfix;
+        @include font-shorthand(bold, 11px, 15px);
+        margin: 0 0 0 315px;
+        padding: 10px 0 0;
+        dt {
+            clear: left;
+            color: $darkestgray;
+            float: left; 
+            padding: 0;
+            &:after {
+                content: ":";
+            }
+        }
+        dd {
+            color: $lightgray;
+            float: left;
+            margin: 0 0 0 5px;;
+            padding: 0;
+        }
+    }
+    .book-cover {
+        left: 0;
+        position: absolute;
+        top: 40px;
+        @include size(380px, 315px);
+        img {
+            display: block;
+        }
+        a {
+            @include button;
+            text-transform: uppercase;
+            i.comment-icon {
+                display: inline-block;
+                line-height: inherit;
+                margin: -3px 0 0;
+                @include sprite2(0, -80px);
+                @include size(15px, 35px);
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.no-csstransforms3d {
+    .book-cover {
+        .img {
+            @include size(378px, 250px);
+            margin-bottom: 30px;
+        }
+        a {
+            margin: 0 0 0 50px;
+        }
+    }
+}
+
+.csstransforms3d {
+    .book-cover {
+        background: url(bookback.jpg) no-repeat;
+        -moz-perspective: 300px;
+        -webkit-perspective: 300px;
+        perspective: 300px;
+        position: absolute;
+        top: 40px;
+        @include size(380px, 315px);
+        img {
+            left: -55px;
+            position: relative;
+            -moz-transform: rotateY(-20deg) scale(.58, .69);
+            -webkit-transform: rotateY(-20deg) scale(.58, .69);
+            transform: rotateY(-20deg) scale(.58, .69);
+            top: -51px;
+        }
+        a {
+            left: 26px;
+            position: absolute;
+            top: 380px;
+        }
+    }
+}
+
+.favorite-quotes {
+    background-color: #262626;
+    border-bottom: 1px solid #fff;
+    padding: 20px 0 40px 0;
+    text-align: center;
+    h1 {
+        color: #fff;
+        font-family: "SignPainter-HouseScript", cursive;
+        @include font-shorthand(normal, 36px, 30px);
+        text-align: center;
+        span {
+            display: block;
+            font-family: "brandon-grotesque", Arial, sans-serif;
+            @include font-shorthand(700, 36px, 40px);
+            text-transform: uppercase;
+        }
+    }
+    form {
+        height: 160px;
+        margin: 0 0 90px;
+        position: relative;
+        label {
+            color: #fff;
+            display: block;
+            font-family: Georgia, Times, serif;
+            @include font-shorthand(normal, 40px, 48px);
+            font-style: italic;
+            position: absolute;
+            @include size(48px, 960px);
+            text-align: center;
+            top: 110px;
+        }
+        input {
+            background: url(img/quotes.png) no-repeat;
+            border: none;
+            color: #fff;
+            display: block;
+            font-family: Georgia, Times, serif;
+            @include font-shorthand(normal, 40px, 48px);
+            font-style: italic;
+            outline: none;
+            padding: 0 70px;
+            position: absolute;
+            @include size(48px, 820px);
+            text-align: center;
+            top: 110px;
+        }
+        button {
+            @include button;
+            border: none;
+            display: block;
+            height: 30px;
+            left: 50%;
+            margin-left: -61px;
+            position: absolute;
+            top: 0;
+            i.quote-icon {
+                display: inline-block;
+                line-height: inherit;
+                margin: -3px 0 0;
+                @include sprite2(0, -115px);
+                @include size(16px, 28px);
+                vertical-align: middle;
+            }
+        }
+    }
+    div > a {
+        color: $teal;
+        background-color: #f7f7f7;
+        border: 1px solid $lightgray; 
+        @include border-radius();
+        display: inline-block;
+        @include font-shorthand(normal, 12px, 30px);
+        padding: 0 15px;
+        &:hover {
+            background-color: $teal;
+            color: #fff;
+        }
+        i.raqute-icon {
+            display: inline-block;
+            line-height: inherit;
+            margin: -3px -5px 0 0;
+            @include sprite();
+            @include size(23px, 24px);
+            vertical-align: middle;
+        }
+    }
+    .all-quotes {
+        color: #fff;
+        display: block;
+        font-family: Georgia, Times, serif;
+        @include font-shorthand(normal, 20px, 24px);
+        font-style: italic;
+        list-style: none;
+        margin: 0;
+        padding: 40px 0 0 0;
+        position: relative;
+        @include size(24px, 100%);
+        li {
+            display: block;
+            margin: 30px 0;
+            opacity: 0;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+        }
+        li:first-child {
+            opacity: 100;
+        }
+    }
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    a:hover {
+        text-decoration: underline;
+    }
+    > div.section-wrap {
+        @include clearfix;
+        width: 1040px;
+    }
+    .recommendations {
+        border-right: 1px solid $gray;
+        @include clearfix;
+        float: left;
+        padding: 40px 30px 40px 0;
+        width: 439px;
+        ul {
+            float: left;
+            list-style: none;
+            margin: 0 30px 0 0;
+            padding: 0 0 30px;
+            a {
+                color: $teal;
+                @include font-shorthand(normal, 12px, 20px);
+            }
+        }
+        h2 {
+            color: #fff;
+            @include font-shorthand(normal, 14px, 20px);
+            margin: 0 0 0.5em;
+        }
+        p {
+            color: #fff;
+            @include font-shorthand(normal, 12px, 20px);
+            margin: 0;
+            a {
+                color: $teal;
+                &:after {
+                    content: "→";
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .sitemap {
+        float: left;
+        margin: 0 0 0 30px;
+        padding: 40px 0 0 0;
+        width: 540px;
+        ul {
+            @include clearfix;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                color: #fff;
+                float: left;
+                @include font-shorthand(normal, 14px, 20px);
+                text-transform: capitalize;
+                width: 100px;
+            }
+            ul {
+                margin: 0.5em 0;
+            }
+            a {
+                color: $teal;
+                @include font-shorthand(normal, 12px, 20px);
+            }
+        }
+    }
+    .footnotes {
+        background-color: #262626;
+        color: #fff;
+        @include font-shorthand(normal, 11px, 20px);
+        height: 20px;
+        padding: 12px 0;
+        .section-wrap {
+            @include clearfix;
+            width: 1040px;
+        }
+        .copyright {
+            display: block;
+            float: left;
+            width: 500px;
+        }
+        .legal {
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            li {
+                float: left;
+                margin-right: 30px;
+                a {
+                    color: $teal;
+                }
+            }
+        }
+        .partner {
+            display: block;
+            float: left;
+            text-align: right;
+            width: 140px;
+        }
+    }
+}
+
+/**
+* Stylish Select 0.4.9 - $ plugin to replace a select drop down box with a stylable unordered list
+* http://github.com/scottdarby/Stylish-Select/
+
+* Hide lists on page load ---------------------------------------------------------*/
+.stylish-select .SSContainerDivWrapper {
+	left:-9999px;
+}
+
+/* Red example ------------------------------------------*/
+.stylish-select .SSContainerDivWrapper {
+	margin:0;
+	padding:0;
+	width:275px;
+	position:absolute;
+	top:22px;
+	left:0;
+	z-index:2;
+    border: 1px solid $lightestgray;
+}
+
+.stylish-select ul.newList {
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#000;
+	background:#fff;
+	border:1px solid #ccc;
+	overflow:none;
+}
+
+.stylish-select ul.newList * {
+	margin:0;
+	padding:0;
+}
+
+
+.stylish-select ul.newList a {
+	color: #000;
+	text-decoration:none;
+	display:block;
+	padding:3px 8px;
+}
+
+.stylish-select .newListSelected {
+	width:268px;
+	color:#000;
+	height:33px;
+	padding:3px 0 0 10px;
+	float:left;
+	background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 50%, #f2f2f2 51%, #f2f2f2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#ffffff), color-stop(51%,#f2f2f2), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 50%,#f2f2f2 51%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#ffffff 50%,#f2f2f2 51%,#f2f2f2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#ffffff 50%,#f2f2f2 51%,#f2f2f2 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 50%,#f2f2f2 51%,#f2f2f2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+    border: 1px solid $lightestgray;
+    @include border-radius();
+}
+
+.stylish-select ul.newList li a:focus {
+	-moz-outline-style: none;
+}
+
+.stylish-select .selectedTxt {
+	width:234px;
+	overflow:hidden;
+	height:30px;
+	padding:0 34px 0 0;
+	position: relative;
+	&:after {
+    	@include sprite(5px, -109px);
+    	border-left: 1px solid $lightestgray;
+    	content: "";
+    	@include size(33px, 33px);
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+	}
+	&:hover:after {
+    	@include sprite(5px, -139px);
+	}
+}
+
+.stylish-select .hiLite {
+    background: #6db9bf; /* Old browsers */
+    background: -moz-linear-gradient(top,  #6db9bf 0%, #6db9bf 45%, #4aa8b0 55%, #4aa8b0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6db9bf), color-stop(45%,#6db9bf), color-stop(55%,#4aa8b0), color-stop(100%,#4aa8b0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #6db9bf 0%,#6db9bf 45%,#4aa8b0 55%,#4aa8b0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db9bf', endColorstr='#4aa8b0',GradientType=0 ); /* IE6-9 */
+	color:#fff!important;
+}
+
+.stylish-select .newListHover {
+    background: #6db9bf; /* Old browsers */
+    background: -moz-linear-gradient(top,  #4aa8b0 0%, #4aa8b0 45%, #6db9bf 55%, #6db9bf 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4aa8b0), color-stop(45%,#4aa8b0), color-stop(55%,#6db9bf), color-stop(100%,#6db9bf)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #4aa8b0 0%,#4aa8b0 45%,#6db9bf 55%,#6db9bf 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #4aa8b0 0%,#4aa8b0 45%,#6db9bf 55%,#6db9bf 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #4aa8b0 0%,#4aa8b0 45%,#6db9bf 55%,#6db9bf 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #4aa8b0 0%,#4aa8b0 45%,#6db9bf 55%,#6db9bf 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4aa8b0', endColorstr='#6db9bf',GradientType=0 ); /* IE6-9 */
+	color:#000!important;
+	cursor:default;
+}
+
+.stylish-select .newListDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListItemDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListOptionDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListSelHover,
+.stylish-select .newListSelFocus {
+	background-position:0 -22px;
+	cursor:default;
+}
+
+.stylish-select .newListOptionTitle {
+	font-weight:bold;
+}
+
+.stylish-select .newListOptionTitle ul {
+	margin:3px 0 0;
+}
+
+.stylish-select .newListOptionTitle li {
+	font-weight:normal;
+}

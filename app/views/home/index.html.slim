@@ -1,17 +1,186 @@
-p = @book.title
-p = @book.description
-p = @book.image_url
-p = @book.author
-p = @book.isbn
-p = @book.format
+header
+    h1 = @book.title
+    h2 
+        |   by 
+        em = @book.author
+    span.print-data Published Jun 2012, 368 pages
+    nav.user-toolbar
+        ul
+            li
+                a href="#" Add to my queue
+            li
+                a href="#" I've read it
+            li
+                a href="#" No thanks
+            li
+                a.fav-icon href="#" Add to favorites
 
-ul
-  - for @quote in @book.quotes do
-    li = @quote.quote
+nav.page-nav
+    ul
+        li
+            a href="#" 
+                | About this 
+                span book
+        li
+            a href="#" 
+                | Favorite
+                span quotes
 
-ul
-  - for @product in @book.products do
-    li 
-      span = @product.type
-      span = @product.price
+section.about-book
+    h1
+        | About this
+        span book
+    ul.add-to-cart
+        li
+            | Price: $12.99 
+            a href="#"
+                i class="cart-icon"
+                | BUY eBOOK
+        li.action
+            span
+                | Price: 
+                em $30.13
+            a href="#"
+                | ADD TO CART
+            select
+                option value="$30.13"
+                    | CD-Audio, 2012, $30.13
+                option value="$12.99"
+                    | Digital download, 2012, $12,99
+        li
+            select
+                option Buy elsewhere
+                option Amazon
+                option Barnes and Noble
+                option Books-A-Million
+                option iBookstore
+                option IndieBound
+                option Kobo
+      
+    p = @book.description
+    dl
+        dt ISBN
+        dd = @book.isbn
+        dt Format
+        dd = @book.format
+        dt Pages
+        dd = @book.pages
+        dt Publication Date
+        dd = @book.publication_date
+    .book-cover
+        = image_tag "cover.jpg"
+        a href="#"
+            i.comment-icon
+            | Add a review
+    
+section.favorite-quotes
+    .section-wrap
+        h1
+            | Favorite
+            span quotes
+        form
+            label Add your favorite quote from the book.
+            input#input-quote type="text"
+            button type="submit"
+                i.quote-icon
+                | Add a quote
+        a#show-all-quotes href="#"
+            | View all quotes
+            i.raqute-icon
+        ul.all-quotes
+          - for @quote in @book.quotes do
+            li = @quote.quote
 
+footer
+    .section-wrap
+        .recommendations
+            ul
+                li
+                    h2 Recommendations
+                li
+                    a href="#"
+                        | Start with a book
+                li
+                    a href="#"
+                        | Start with an author
+                li
+                    a href="#"
+                        | Start with an experience
+            h2 The Fingerprint
+            p 
+                | Looking for a new reading adventure? Delivers better book discovery. Our recommendations are based on a deep understanding of book anatomy, reader experiences and diverse publishing insights. 
+                a href="#"
+                    | Learn more
+        nav.sitemap
+            ul
+                li 
+                    | About us
+                    ul
+                        li
+                            a href="#"
+                                | About
+                        li
+                            a href="#"
+                                | Blog
+                li 
+                    | Contact us
+                    ul
+                        li
+                            a href="#"
+                                | Advertising
+                        li
+                            a href="#"
+                                | Careers
+                        li
+                            a href="#"
+                                | Contact us
+                li 
+                    | Follow us
+                    ul
+                        li
+                            a href="#"
+                                | Facebook
+                        li 
+                            a href="#"
+                                | Twitter
+                        li
+                            a href="#"
+                                | Pinterest
+                        li
+                            a href="#"
+                                | Tumblr
+                li 
+                    | Offers
+                    ul
+                        li
+                            a href="#"
+                                | Deals
+                        li
+                            a href="#"
+                                | On sale
+                li 
+                    | Support
+                    ul
+                        li
+                            a href="#"
+                                | FAQ
+                        li
+                            a href="#"
+                                | Community guidelines
+                        li
+                            a href="#"
+                                | Support
+    .footnotes
+        .section-wrap
+            span.copyright &copy; 2012
+            ul.legal
+                li
+                    a href="#"
+                        | Site map
+                li
+                    a href="#"
+                        | Privacy policy
+                li
+                    a href="#"
+                        | Terms of service
+            span.partner in partnership with
